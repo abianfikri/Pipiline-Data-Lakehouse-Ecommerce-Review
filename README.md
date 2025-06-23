@@ -40,7 +40,32 @@ Alur Pipeline
 
 # Struktur Proyek (Penjelasan)
 
-Proyek ini memiliki beberapa direktori dan file utama sebagai berikut:
+# Konfigurasi File .env
+
+Proyek ini membutuhkan file .env untuk menyimpan URL file dataset eksternal yang perlu diunduh secara manual. File .env ini digunakan sebagai referensi lokasi data mentah sebelum dijalankan dalam pipeline.
+
+Berikut adalah isi file .env yang perlu dibuat di root folder proyek:
+
+# URL dataset produk handmade
+HANDMADE_PRODUCT_DATASET_URL="https://drive.google.com/file/d/1IenghjCb33L_F0DUtvufllWcQd_YSXcG/view?usp=drive_link"
+
+# URL struktur data lake
+DATA_LAKE_URL="https://drive.google.com/file/d/1UUTJqiz8EVI5-ygIvP_-PNlXxcRlACr_/view?usp=drive_link"
+
+Cara Menggunakan:
+
+   Buat file baru bernama .env di root folder proyek.
+
+   Salin isi di atas ke dalam file .env.
+
+   Unduh file secara manual melalui link Google Drive di atas.
+
+   Ekstrak hasil unduhan ke dalam folder:
+        datasets/ untuk data produk handmade.
+        data-lake/ untuk struktur data lake yang diperlukan oleh Hive/Spark.
+    Pastikan struktur folder sudah benar sebelum menjalankan pipeline, agar proses ingestion dan analisis berjalan tanpa error.
+
+# Proyek ini memiliki beberapa direktori dan file utama sebagai berikut:
 
 * docker-compose.yml`
   Berisi konfigurasi untuk menjalankan seluruh layanan (Kafka, Spark, Hive, Superset, dsb.) menggunakan Docker secara terintegrasi.
@@ -59,6 +84,7 @@ Proyek ini memiliki beberapa direktori dan file utama sebagai berikut:
 
   * transactions.csv`: berisi data transaksi e-commerce.
   * reviews.json`: berisi data ulasan pelanggan.
+ 
 
 * `README.md
   Dokumentasi utama proyek yang menjelaskan deskripsi, teknologi, cara kerja pipeline, cara instalasi, serta insight bisnis.
