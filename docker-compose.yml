@@ -11,7 +11,7 @@ services:
       - "2181:2181"
 
   kafka:
-    image: bitnami/kafka:3.4.0-debian-11-r0 # ✅ versi stabil non-KRaft
+    image: bitnami/kafka:3.4.0-debian-11-r0
     container_name: kafka
     ports:
         - "9092:9092"
@@ -40,6 +40,19 @@ services:
       - ./jars:/opt/spark-apps/jars
     depends_on:
       - kafka
+      - postgres
+
+  postgres:
+    image: postgres:13
+    container_name: postgres
+    environment:
+      POSTGRES_DB: superset
+      POSTGRES_USER: superset
+      POSTGRES_PASSWORD: superset
+    ports:
+      - "5432:5432"
+    volumes:
+      - ./pg_data:/var/lib/postgresql/data
 
   superset:
     image: apache/superset
@@ -50,3 +63,5 @@ services:
       - SUPERSET_SECRET_KEY=supersecretkey
     volumes:
       - ./superset:/app/superset_home
+    depends_on:
+    - postgres
