@@ -1,4 +1,12 @@
 # Folder: spark-apps/spark_consumer_review.py
+# ===========================================
+# Code untuk consumer dataset review dari Kafka
+# ===========================================
+# running menggunakan spark-submit pada terminal dengan perintah:
+# docker exec -it spark spark-submit --packages io.delta:delta-core_2.12:2.3.0,org.apache.spark:spark-sql-kafka-0-10_2.12:3.3.0  
+# --conf "spark.sql.extensions=io.delta.sql.DeltaSparkSessionExtension" 
+# --conf "spark.sql.catalog.spark_catalog=org.apache.spark.sql.delta.catalog.DeltaCatalog" 
+# /opt/spark-apps/spark_consumer_delta_review.py
 
 from pyspark.sql import SparkSession
 from pyspark.sql.functions import from_json, col

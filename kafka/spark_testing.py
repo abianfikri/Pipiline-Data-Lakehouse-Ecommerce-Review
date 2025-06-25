@@ -6,7 +6,7 @@ import pyarrow.parquet as pq
 
 # ./transaksi_clean.parquet || ./data-lake/output_ecommerce_delta
 
-df = pd.read_parquet('./transaksi_clean.parquet', engine='pyarrow')
+df = pd.read_parquet('./data-lake/monthly_quantity_summary_delta', engine='pyarrow')
 
 
 # Menampilkan informasi dasar
