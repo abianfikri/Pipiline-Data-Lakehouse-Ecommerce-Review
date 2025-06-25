@@ -1,3 +1,4 @@
 /data-lake/*
 !/data-lake/*.zip
 /datasets/*.jsonl
+pg_data
