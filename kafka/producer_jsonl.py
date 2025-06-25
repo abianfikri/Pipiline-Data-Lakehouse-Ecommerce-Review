@@ -1,4 +1,7 @@
 ### Folder: kafka/producer_jsonl.py
+### ===========================================
+### Code untuk mengirim data dari JSONL ke Kafka
+### ===========================================
 
 from kafka import KafkaProducer
 import json

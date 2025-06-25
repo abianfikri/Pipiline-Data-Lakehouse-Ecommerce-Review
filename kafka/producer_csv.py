@@ -1,4 +1,7 @@
 ### Folder: kafka/producer_csv.py
+### ===========================================
+### Code untuk mengirim data dari CSV ke Kafka
+### ===========================================
 
 from kafka import KafkaProducer
 import csv
